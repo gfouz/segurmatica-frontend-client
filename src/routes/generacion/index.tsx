@@ -9,9 +9,6 @@ function Generation() {
       <StyledResgister>
         <section className="login">
           <div className="login__divider">
-            <img className="login__image" src="./images/contact.png" />
-          </div>
-          <div className="login__divider">
             <Generate />
           </div>
         </section>
@@ -22,7 +19,7 @@ function Generation() {
 export default Generation;
 const StyledResgister = styled.div`
   width: 100%;
-  background-color: #f8f8f8;
+  background-image: linear-gradient(to right, #ffffff, #999999);
   .login {
     position: relative;
     display: flex;

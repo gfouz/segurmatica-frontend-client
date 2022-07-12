@@ -9,7 +9,6 @@ import "./index.css";
 
 const queryClient = new QueryClient();
 
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <>
@@ -29,15 +28,3 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </>
   </React.StrictMode>
 );
-
-
-
-
-/*const Loadable = (Component:any) => (props) =>
-(
-  <Suspense fallback={<Card />}>
-    <Component {...props} />
-  </Suspense>
-);*/
-
-//const Homepage = Loadable(lazy(() => import('./routes/homepage/index')));

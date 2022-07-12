@@ -1,8 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Layout from "../layout/Layout";
-import Form from './Form';
-
+import Form from "./Form";
 
 function Renovation() {
   return (
@@ -10,10 +9,7 @@ function Renovation() {
       <StyledResgister>
         <section className="login">
           <div className="login__divider">
-            <img className="login__image" src="./images/contact.png" />
-          </div>
-          <div className="login__divider">
-            <Form/>
+            <Form />
           </div>
         </section>
       </StyledResgister>
@@ -44,7 +40,7 @@ const StyledResgister = styled.div`
   .login__logo {
     width: 300px;
     border-radius: 10px;
-    background-color:#00000099;
+    background-color: #00000099;
     position: absolute;
     top: 50%;
     left: 50%;

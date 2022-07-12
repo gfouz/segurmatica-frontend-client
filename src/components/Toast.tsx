@@ -29,7 +29,7 @@ const Toast = styled(ToastContainer)`
 
 `;
 
-export const message = (type, msg) => {
+export const message = (type: string, msg: string) => {
   switch (type) {
     case 'success':
       toast.success(msg);

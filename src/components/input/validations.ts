@@ -30,8 +30,9 @@ export type chakraAttributes = {
 };
 
 export interface InputProps {
-  idEvt: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  //idEvt: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: ILabel;
+  pattern?: RegExp;
   htmlAttributes: chakraAttributes;
   register: UseFormRegister<any>;
   placeholder?: string | undefined;
@@ -93,22 +94,4 @@ export const dates: IDates = {
   monthunder: (id) => parseInt(id.substring(2, 4)) <= 12,
   dayover: (id) => parseInt(id.substring(4, 6)) >= 1,
   dayunder: (id) => parseInt(id.substring(4, 6)) <= 31,
-};
-
-//__________________Aditional validations.__________________//
-
-export const idValidation: IRequirements = {
-  required: true,
-  maxLength: 11,
-  minLength: 11,
-};
-export const onlyRequired: IRequirements = {
-  required: true,
-  maxLength: 4,
-  minLength: 4,
-};
-export const telValidation: IRequirements = {
-  required: true,
-  maxLength: 12,
-  minLength: 8,
 };

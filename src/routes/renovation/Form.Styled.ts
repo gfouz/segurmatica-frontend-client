@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 
 export const StyledForm = styled.div`
-  background-color: #F8F8F8;
-  width: 100%;
+  background-color: #F1F1F1;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;

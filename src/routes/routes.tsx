@@ -7,7 +7,6 @@ const Downloads = lazy(() => import("./downloads/index"));
 const Renovation = lazy(() => import("./renovation/index"));
 const Revocation = lazy(() => import("./revocation/index"));
 
-
 export default [
   {
     path: "/",
@@ -36,7 +35,5 @@ export default [
   {
     path: "/revocacion",
     element: <Revocation />,
-  }
+  },
 ];
-
-

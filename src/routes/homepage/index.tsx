@@ -6,7 +6,6 @@ import { subtitleProps, logoProps } from "./constant";
 import { Heading } from "@chakra-ui/react";
 
 export default function Homepage() {
-
   return (
     <Layout>
       <StyledHome>
@@ -19,9 +18,9 @@ export default function Homepage() {
             />
             <p className="article__pki">PKI</p>
             <HorizonLine color="#1799ff" />
-           {/* <Heading {...subtitleProps}>{new Date().getFullYear()}</Heading>*/ }
+            {/* <Heading {...subtitleProps}>{new Date().getFullYear()}</Heading>*/}
           </article>
-          <img src="./images/Homepage.png" alt="robot"/>
+          <img src="./images/homepage.png" alt="robot" />
         </section>
       </StyledHome>
     </Layout>
