@@ -6,6 +6,7 @@ const Services = lazy(() => import("./services/index"));
 const Downloads = lazy(() => import("./downloads/index"));
 const Renovation = lazy(() => import("./renovation/index"));
 const Revocation = lazy(() => import("./revocation/index"));
+const Policy = lazy(() => import("./policy/index"));
 
 export default [
   {
@@ -35,5 +36,9 @@ export default [
   {
     path: "/revocacion",
     element: <Revocation />,
+  },
+  {
+    path: "/terminos",
+    element: <Policy />,
   },
 ];

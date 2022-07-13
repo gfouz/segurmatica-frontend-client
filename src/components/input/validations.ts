@@ -5,19 +5,21 @@ import { ResponsiveValue } from "@chakra-ui/react";
 /*-----------------Literal types for registering inputs-------------------*/
 export type ILabel =
   | "id"
+  | "dn"
   | "tel"
   | "tomo"
   | "terms"
   | "folio"
   | "email"
   | "user"
+  | "motive"
   | "usertype"
   | "password";
 
-export interface IRequirements {
-  required: ValidationRule<boolean> | string | undefined;
-  maxLength: ValidationRule<number> | undefined;
-  minLength: ValidationRule<number> | undefined;
+export interface IAttributes {
+  required?: ValidationRule<boolean> | undefined | string;
+  maxLength?: ValidationRule<number> | undefined;
+  minLength?: ValidationRule<number> | undefined;
 }
 export type chakraAttributes = {
   size: ResponsiveValue<(string & {}) | "sm" | "md" | "lg" | "xs"> | undefined;
@@ -33,11 +35,12 @@ export interface InputProps {
   //idEvt: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: ILabel;
   pattern?: RegExp;
+  message: string;
   htmlAttributes: chakraAttributes;
   register: UseFormRegister<any>;
   placeholder?: string | undefined;
   _placeholder?: CSSObject | undefined;
-  requirements: IRequirements;
+  requirements: IAttributes;
   validations?: IDates;
 }
 

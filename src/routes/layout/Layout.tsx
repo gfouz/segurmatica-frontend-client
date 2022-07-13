@@ -1,9 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import ToastVariant  from '../../components/Toast'
-//import 'react-toastify/dist/ReactToastify.css';
 import ChakraDrawer from './Drawer';
 import { Button, useDisclosure } from '@chakra-ui/react'
+//import ToastVariant  from '../../components/Toast'
 
 interface ILayout {
  btncolor?: string;
@@ -32,7 +31,6 @@ export default function Layout(props: ILayout) {
             </strong>
           </Button>
         </header>
-        <ToastVariant />
         <div className="main">{props.children}</div>
 
         <footer>Segurmática {new Date().getFullYear()}</footer>

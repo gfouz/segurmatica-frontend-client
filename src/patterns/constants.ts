@@ -120,9 +120,9 @@ export const initialState: IState = {
 
 /*__________________Inputs validations.__________________*/
 export interface IAttributes {
-  required: ValidationRule<boolean> | string | undefined;
-  maxLength: ValidationRule<number> | undefined;
-  minLength: ValidationRule<number> | undefined;
+  required?: ValidationRule<boolean> | undefined | string;
+  maxLength?: ValidationRule<number> | undefined;
+  minLength?: ValidationRule<number> | undefined;
 }
 export const folio_terms: IAttributes = {
   required: true,
@@ -144,27 +144,8 @@ export const tel_terms: IAttributes = {
   maxLength: 12,
   minLength: 8,
 };
-
-interface IToastProps {
-  position: string;
-  autoClose: number;
-  hideProgressBar: boolean;
-  closeOnClick: boolean;
-  pauseOnHover: boolean;
-  draggable: boolean;
-  progress: undefined;
-  toastId: number;
-}
-
-export const toastProps: IToastProps = {
-  position: "top-center",
-  autoClose: 3000,
-  hideProgressBar: true,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  toastId: 1,
+export const email_terms: IAttributes = {
+  required: true,
 };
 type errors = {
   id?: FieldErrors | undefined;
@@ -173,15 +154,6 @@ type errors = {
   folio?: FieldErrors | undefined;
   email?: FieldErrors | undefined;
 };
-export function infoMessage(err: errors, toast: any) {
-  err.id &&
-    toast.warning("Requerido 11 dígitos y ser mayor de 18 años", {
-      ...toastProps,
-    });
-  err.tomo && toast.warning("Tomo admite 4 números!", { ...toastProps });
-  err.folio && toast.warning("Folio admite 4 números!", { ...toastProps });
-  err.email && toast.warning("Email incorrecto!", { ...toastProps });
-}
 
 // HTML ATTRIBUTES
 
@@ -210,3 +182,55 @@ export const password_type: chakraProps = {
   type: "password",
   variant: "flushed",
 };
+
+interface ITooltip {
+  ci: string;
+  tel: string;
+  tomo: string;
+  folio: string;
+  email: string;
+}
+
+export const tooltips: ITooltip = {
+  ci: "Solo 11 dígitos y ser mayor de 18 años",
+  tomo: "El tomo solo admite 4 dígitos",
+  folio: "El folio solo admite 4 dígitos",
+  email: "Formato de email incorrecto!",
+  tel: "Número de teléfono requrido!",
+};
+
+interface IToastProps {
+  position: string;
+  autoClose: number;
+  hideProgressBar: boolean;
+  closeOnClick: boolean;
+  pauseOnHover: boolean;
+  draggable: boolean;
+  progress: undefined;
+  toastId: number;
+}
+
+export const toastProps: IToastProps = {
+  position: "top-center",
+  autoClose: 3000,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  toastId: 1,
+};
+
+export function infoMessage(err: errors, toast: any) {
+  err.id &&
+    toast.warning(
+      "Nro de carnet de identidad es 11 dígitos y ser mayor de 18 años",
+      {
+        ...toastProps,
+      }
+    );
+  err.tomo && toast.warning("Tomo admite 4 números!", { ...toastProps });
+  err.folio && toast.warning("Folio admite 4 números!", { ...toastProps });
+  err.email && toast.warning("Email formato incorrecto!", { ...toastProps });
+  err.tel && toast.warning("Nro de teléfono requerido!", { ...toastProps });
+}

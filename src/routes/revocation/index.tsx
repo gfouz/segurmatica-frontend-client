@@ -1,17 +1,16 @@
 import * as React from "react";
 import styled from "styled-components";
 import Layout from "../layout/Layout";
-import Form from './Form';
-
+import Form from './Form'; 
+import { theme } from '../constants';
+import ToastVariant  from '../../components/Toast'
 
 function Revocation() {
   return (
     <Layout>
       <StyledResgister>
+         <ToastVariant linear={theme.green} color = "#ffffff"/>
         <section className="login">
-          <div className="login__divider bg-grey">
-            <img className="login__image" src="./images/contact.png" />
-          </div>
           <div className="login__divider">
             <Form />
           </div>

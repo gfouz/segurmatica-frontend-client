@@ -8,7 +8,15 @@ export const StyledForm = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  @media (min-width: 800px){
-    padding: 0.5em 0;
+  padding: 4em 1em;
+  margin: 2em 0;
+  border-radius: 20px;
+  .input__label {
+    white-space: nowrap;
+  }
+  .title {
+    font-size: 16px;
+    color:#0660b1;
+    margin: 0 0 0 1em;
   }
 `;

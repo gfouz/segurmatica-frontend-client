@@ -1,21 +1,23 @@
 import * as React from "react";
 import { StyledForm } from "./Form.Styled";
+import {Link} from 'react-router-dom';
+import { toast } from "react-toastify";
 import { useForm, SubmitHandler } from "react-hook-form";
-import {
-  OnlyNumberInputProps,
-  TextInputProps,
-  IdRegisterRules,
-} from "./constants";
+import ChakraInput from "../../components/input/ChakraInput";
 
-interface IFormInput {
-  //these are also! nominals for register props.
-  id: string;
-  dn: string;
-  renewal: string;
-  revocation: string;
-  motive: string;
-  policy: string;
-}
+import { 
+  dates,
+  ci_terms,
+  dn_terms,
+  tooltips, 
+  text_type,
+  IFormInput,
+  number_type,
+  motive_terms, 
+  alertMessage
+} from "../constants";
+
+
 
 import {
   Box,
@@ -43,68 +45,69 @@ export default function Form() {
   } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
-
-  function eventHandler(evt: React.ChangeEvent<HTMLInputElement>) {
-    let { value } = evt.target;
-    let items = value.length;
-    items && items === 11
-      ? setColor("#66CC00")
-      : setAlert("Validos 11 números");
-    items && items > 11 ? setColor("#ff0000") : setAlert("Complete 11 numeros");
-    items && items < 11
-      ? setColor("#CCCCCC")
-      : setAlert("Número excedido de 11");
-  }
+  alertMessage(errors, toast);
+  
   return (
     <>
       <StyledForm>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Center w="100%" p="1.5em">
             <Heading as="h3" size="lg" color="#B22222">
-              Solicitud:
+              Renovación
             </Heading>
           </Center>
-          <Center w="100%" p="0.3em 0">
-            <Text color="#666666">Renovación</Text>
-          </Center>
-
-          <HStack spacing={2} p="0.7em">
+          <HStack  p="2em">
             <Container>
-              <label style={{ color: `${color}` }}>
+              <label style={{ color: errors.id ? "red" : "#222222" }}>
                 <strong>Nro de ID</strong>
               </label>
-              <Input
-                {...OnlyNumberInputProps}
-                _placeholder={{ color: errors.id ? "red.400" : "#666666" }}
-                placeholder={errors.id ? "Valido 11 dígitos" : " "}
-                {...register("id", {
-                  ...IdRegisterRules,
-                  onChange: (e) => eventHandler(e),
-                })}
-              />
+
+            <ChakraInput
+                label="id"
+                message={tooltips.ci}
+                register={register}
+                validations={dates}
+                htmlAttributes={number_type}
+                requirements={ci_terms}
+                placeholder={
+                  errors.id && "Escriba Nro de CI!"
+                }
+                _placeholder={{ color: errors.id && "red.400" }}
+              />  
+
+              
             </Container>
             <Container>
-              <label>Nro de Serie o DN</label>
-              <Input
-                {...OnlyNumberInputProps}
-                _placeholder={{ color: errors.dn ? "red.400" : "gray.500" }}
-                placeholder={errors.dn ? "Olvido su DN!" : ""}
-                {...register("dn", { required: true })}
-              />
+              <label style={{ color: errors.dn ? "red" : "#222222" }}>
+                <strong className="input__label">Nro de Serie</strong>
+              </label>
+            <ChakraInput
+                label="dn"
+                message={tooltips.dn}
+                register={register}
+                htmlAttributes={number_type}
+                requirements={dn_terms}
+                placeholder={
+                  errors.dn && "Escriba Nro de DN!"
+                }
+                _placeholder={{ color: errors.dn && "red.400" }}
+              />  
             </Container>
           </HStack>
 
-          <Box p="0 1em" w="100%">
-            <Flex justifyContent="flex-start">
+            <HStack p="2em">
               <Checkbox
+                style={{border:"#444444"}}
                 m="0 0.7em"
                 colorScheme="red"
                 {...register("policy", { required: true })}
               >
-                Acepto los terminos y condiciones.
+               <Link to="/terminos">
+                <Heading className="title"> Acepto los terminos y condiciones.</Heading>
+               </Link> 
               </Checkbox>
-            </Flex>
-          </Box>
+            </HStack>
+
           <Box p="2em 0.7em" w="100%">
             <Flex justifyContent="space-evenly">
               <Button colorScheme="facebook" variant="solid" type="submit">

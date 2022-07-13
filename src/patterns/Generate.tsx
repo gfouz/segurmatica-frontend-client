@@ -18,11 +18,13 @@ import {
   tomo_terms,
   folio_terms,
   tel_terms,
+  email_terms,
   number_type,
   telephone_type,
   email_type,
   text_type,
   infoMessage,
+  tooltips,
 } from "./constants";
 
 import {
@@ -64,9 +66,11 @@ export default function Generate() {
       <StyledGenerate>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Center w="100%" p="1.5em">
-            <Heading as="h3" size="lg" color="#B22222">
-              Solicitud de Generación
-            </Heading>
+            <Tooltip label="Escriba sus datos!" aria-label="A tooltip">
+              <Heading as="h3" size="lg" color="#B22222">
+                Solicitud de Generación
+              </Heading>
+            </Tooltip>
           </Center>
           <Center w="100%" p="0.3em 0">
             <Text color="#666666">Escriba sus datos correspondientes:</Text>
@@ -83,6 +87,7 @@ export default function Generate() {
               </label>
               <ChakraInput
                 label="id"
+                message={tooltips.ci}
                 register={register}
                 validations={dates}
                 htmlAttributes={number_type}
@@ -104,6 +109,7 @@ export default function Generate() {
               </label>
               <ChakraInput
                 label="tomo"
+                message={tooltips.tomo}
                 register={register}
                 htmlAttributes={number_type}
                 requirements={tomo_terms}
@@ -124,13 +130,14 @@ export default function Generate() {
               </label>
               <ChakraInput
                 label="folio"
+                message={tooltips.folio}
                 register={register}
                 htmlAttributes={number_type}
                 requirements={folio_terms}
                 placeholder={
                   errors.folio ? "Olvido su Folio!" : "Escriba su Folio"
                 }
-                _placeholder={{ color: errors.folio ? "red.400" : "gray.500" }}
+                _placeholder={{ color: errors.folio && "red.400" }}
               />
             </Container>
           </HStack>
@@ -139,33 +146,28 @@ export default function Generate() {
               <label className="label">
                 <strong
                   className="label__name"
-                  style={{ color: errors.email ? "red" : "#222222" }}
+                  style={{ color: errors.email && "red" }}
                 >
                   Correo Electrónico
                 </strong>
               </label>
-              <Input
-                {...email_type}
-                m="0 0.7em"
-                _placeholder={{
-                  color: errors.email ? "red.400" : "gray.500",
-                }}
-                placeholder={
-                  errors.email
-                    ? "Email requerido!"
-                    : "Escriba su Correo Electrónico"
-                }
-                {...register("email", {
-                  required: true,
-                  pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                })}
+
+              <ChakraInput
+                label="email"
+                register={register}
+                message={tooltips.email}
+                htmlAttributes={email_type}
+                requirements={email_terms}
+                placeholder={errors.folio && "Email requerido!"}
+                _placeholder={{ color: errors.folio && "red.400" }}
+                pattern={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
               />
             </Container>
             <Container p="2em 0.7em" w="100%">
               <label className="label">
                 <strong
                   className="label__name"
-                  style={{ color: errors.tel ? "red" : "#222222" }}
+                  style={{ color: errors.tel && "red" }}
                 >
                   Teléfono
                 </strong>
@@ -173,10 +175,11 @@ export default function Generate() {
               <ChakraInput
                 label="tel"
                 register={register}
+                message={tooltips.email}
                 htmlAttributes={telephone_type}
                 requirements={tel_terms}
-                placeholder={errors.id ? "Su télefono!" : "Escriba su teléfono"}
-                _placeholder={{ color: errors.id ? "red.400" : "gray.500" }}
+                placeholder={errors.tel && "Télefono requerido!"}
+                _placeholder={{ color: errors.tel && "red.400" }}
               />
             </Container>
           </HStack>
@@ -223,10 +226,7 @@ export default function Generate() {
                       Empresa o Institución
                     </strong>
                   </label>
-                  <Select
-                    m="0 0.7em"
-                    {...register("empresas")} //empresas
-                  >
+                  <Select m="0 0.7em" {...register("empresas")}>
                     <Option data={EMPRESAS} />
                   </Select>
                 </Container>

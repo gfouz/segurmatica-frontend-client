@@ -2,8 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import HorizonLine from "../../components/HorizonLine";
 import Layout from "../layout/Layout";
-import { subtitleProps, logoProps } from "./constant";
-import { Heading } from "@chakra-ui/react";
+import { logoProps } from "./constant";
 
 export default function Homepage() {
   return (
@@ -16,11 +15,11 @@ export default function Homepage() {
               src="./images/segurmatica.jpg"
               alt="Segurmática"
             />
-            <p className="article__pki">PKI</p>
+            <p className="article__title">PKI</p>
             <HorizonLine color="#1799ff" />
-            {/* <Heading {...subtitleProps}>{new Date().getFullYear()}</Heading>*/}
           </article>
           <img src="./images/homepage.png" alt="robot" />
+          <h2 className="article__subtitle">MÁS DE 25 AÑOS DE EXPERIENCIA.</h2>
         </section>
       </StyledHome>
     </Layout>
@@ -55,7 +54,7 @@ const StyledHome = styled.div`
         animation-direction: normal;
         animation-fill-mode: forwards;
       }
-      .article__pki {
+      .article__title {
         opacity: 0;
         color: #0099ff;
         font-size: 3.2em;
@@ -69,7 +68,13 @@ const StyledHome = styled.div`
       }
     }
   }
-
+  .article__subtitle {
+    fontsize: 20px;
+    margin: 0 0 2em 0;
+    color: #000000;
+    whitespace: nowrap;
+    fontfamily: calibri;
+  }
   @keyframes logo {
     from {
       opacity: 0;
