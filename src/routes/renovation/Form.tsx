@@ -103,7 +103,7 @@ export default function Form() {
                 {...register("policy", { required: true })}
               >
                <Link to="/terminos">
-                <Heading className="title"> Acepto los terminos y condiciones.</Heading>
+                <Heading className="checkbox__link"> Acepto los terminos y condiciones.</Heading>
                </Link> 
               </Checkbox>
             </HStack>

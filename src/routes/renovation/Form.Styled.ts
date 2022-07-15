@@ -14,9 +14,10 @@ export const StyledForm = styled.div`
   .input__label {
     white-space: nowrap;
   }
-  .title {
+  .checkbox__link {
     font-size: 16px;
     color:#0660b1;
     margin: 0 0 0 1em;
+    white-space: nowrap;
   }
 `;

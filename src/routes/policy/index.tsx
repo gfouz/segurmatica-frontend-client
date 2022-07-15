@@ -1,12 +1,15 @@
 import * as React from "react";
-import { Link } from 'react-router-dom' 
+import { useNavigate } from 'react-router';
 import CaretLeft from '../../icons/CaretLeft'
 import { Heading, HStack } from "@chakra-ui/react";
 import styled from "styled-components";
 
-
-
 function Policy() {
+
+  let navigate = useNavigate();
+  function handleClick() {
+    navigate(-1)
+  }
   return (
     <>
      <StyledPolicy>
@@ -21,12 +24,12 @@ function Policy() {
          »Tabs also fall under the rubric of white space. You can enter tabs all day long,
          but the browser ignores them completely.
       </p>
-      <Link className="policy__link" to="/renovacion">
        <HStack spacing='16px'>
         <CaretLeft/>
-         <span>regresar</span>
+         <div>
+            <button className="policy__button-backwards" onClick={handleClick}>REGRESAR</button>
+         </div>
        </HStack>
-      </Link>
      </article> 
      </StyledPolicy> 
     </>
@@ -50,7 +53,7 @@ const StyledPolicy = styled.div`
       color: #888888;
       font-size: 20px;
    }
-   .policy__link {
+   .policy__button-backwards {
      text-transform: uppercase;
      font-weight: bolder;
      color: #0660b1;
