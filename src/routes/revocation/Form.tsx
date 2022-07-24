@@ -19,15 +19,11 @@ import {
 import {
   Box,
   Flex,
-  Text,
-  Radio,
-  Input,
   HStack,
   Button,
   Center,
   Checkbox,
   Heading,
-  RadioGroup,
   Container,
 } from "@chakra-ui/react";
 

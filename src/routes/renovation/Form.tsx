@@ -10,10 +10,8 @@ import {
   ci_terms,
   dn_terms,
   tooltips, 
-  text_type,
   IFormInput,
   number_type,
-  motive_terms, 
   alertMessage
 } from "../constants";
 
@@ -22,22 +20,16 @@ import {
 import {
   Box,
   Flex,
-  Text,
-  Radio,
-  Input,
   HStack,
   Button,
   Center,
   Checkbox,
   Heading,
-  RadioGroup,
   Container,
 } from "@chakra-ui/react";
 
 export default function Form() {
-  const [color, setColor] = React.useState("#666666");
-  const [alert, setAlert] = React.useState("");
-  const [radio, setRadio] = React.useState("renewal");
+  
   const {
     register,
     handleSubmit,

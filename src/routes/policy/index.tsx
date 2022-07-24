@@ -3,19 +3,23 @@ import { useNavigate } from 'react-router';
 import CaretLeft from '../../icons/CaretLeft'
 import { Heading, HStack } from "@chakra-ui/react";
 import styled from "styled-components";
+import Form from './Form';
+
 
 function Policy() {
+
 
   let navigate = useNavigate();
   function handleClick() {
     navigate(-1)
   }
   return (
-    <>
-     <StyledPolicy>
-     <article className="policy">
+   <>
+    <StyledPolicy>
+      <article className="policy">
+      <Form />
       <Heading className="policy__title"> Terminos y condiciones de Segurmática </Heading>
-      <p>
+       <p>
          You might think you can line things up and create some interesting effects by
          stringing together two or more spaces. Ha! Web browsers chew up all those
          extra spaces and spit them out into the nether regions of cyberspace. Why?
@@ -23,7 +27,7 @@ function Policy() {
          document. So a run of multiple spaces (or white space, as it’s called) is ignored.
          »Tabs also fall under the rubric of white space. You can enter tabs all day long,
          but the browser ignores them completely.
-      </p>
+       </p>
        <HStack spacing='16px'>
         <CaretLeft/>
          <div>
@@ -31,8 +35,8 @@ function Policy() {
          </div>
        </HStack>
      </article> 
-     </StyledPolicy> 
-    </>
+    </StyledPolicy> 
+  </>
   );
 }
 

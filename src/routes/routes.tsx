@@ -7,6 +7,8 @@ const Downloads = lazy(() => import("./downloads/index"));
 const Renovation = lazy(() => import("./renovation/index"));
 const Revocation = lazy(() => import("./revocation/index"));
 const Policy = lazy(() => import("./policy/index"));
+//const Login = lazy(() => import("./adminlogin/index"));
+
 
 export default [
   {
@@ -40,5 +42,5 @@ export default [
   {
     path: "/terminos",
     element: <Policy />,
-  },
+  }
 ];

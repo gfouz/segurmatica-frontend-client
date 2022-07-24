@@ -1,4 +1,4 @@
-import * as React from "react";
+//import * as React from "react";
 import styled from "styled-components";
 import Layout from "../layout/Layout";
 import Form from './Form'; 
@@ -24,7 +24,7 @@ export default Revocation;
 
 const StyledResgister = styled.div`
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: #f1f1f1;
   .login {
     position: relative;
     display: flex;

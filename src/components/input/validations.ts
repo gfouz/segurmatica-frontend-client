@@ -40,7 +40,7 @@ export interface InputProps {
   register: UseFormRegister<any>;
   placeholder?: string | undefined;
   _placeholder?: CSSObject | undefined;
-  requirements: IAttributes;
+  requirements?: IAttributes;
   validations?: IDates;
 }
 

@@ -24,7 +24,7 @@ export default Renovation;
 
 const StyledResgister = styled.div`
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: #CCCCCC;
   .login {
     position: relative;
     display: flex;

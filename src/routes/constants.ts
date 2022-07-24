@@ -176,7 +176,7 @@ export function alertMessage(err: errors, toast: any) {
   err.folio && toast.warning("Folio admite 4 números!", { ...toastOptions });
   err.email && toast.warning("Email formato incorrecto!", { ...toastOptions });
   err.tel && toast.warning("Nro de teléfono requerido!", { ...toastOptions });
-  err.dn && toast.warning("Nro de DN es requerido!", { ...toastOptions });
+  err.dn && toast.warning("Nro de serie es requerido!", { ...toastOptions });
 }
 
 export const theme = {
